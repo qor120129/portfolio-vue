@@ -1,13 +1,17 @@
 <template>
-    <div>홈</div>
+  <Headline/>
+  <Search/>
 </template>
 
 <script>
-// @ is an alias to /src
+import Headline from '../components/Headline'
+import Search from '../components/Search'
 
 export default {
   name: 'HomeView',
   components: {
+    Headline,
+    Search
   }
 }
 </script>
