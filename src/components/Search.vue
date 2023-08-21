@@ -11,7 +11,6 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
 
 export default {
   name: 'Search',
@@ -47,9 +46,12 @@ export default {
   },
   methods: {
     async apply() {
-      const OMDb_API_KEY = '42cc3285'
-      const res = await axios.get(`https://www.omdbapi.com/?apikey=${OMDb_API_KEY}&s=${this.title}&type=${this.type}&y=${this.year}&page=1`)
-      console.log(res)
+      this.$store.dispatch('movie/searchMovies', {
+        title: this.title,
+        type: this.type,
+        number: this.number,
+        year: this.year
+      })
     }
     // https://www.omdbapi.com/?apikey=42cc3285
   }
