@@ -5,7 +5,7 @@ export default {
   namespaced: true,
   state: () => ({
     movies: [],
-    message: '',
+    message: 'Search for the movie title!',
     loading: false
   }),
   getters: {
@@ -22,41 +22,51 @@ export default {
   },
   actions: {
     async searchMovies({ state, commit }, payload) {
-      try {
+      if (state.loading) return     
 
+      commit('updateState', {
+        message: '',
+        loading: true,
+      })
+
+      try {
         const res = await _fetchMovie({
           ...payload,
-        page: 1
-      })
+          page: 1
+        })
 
-      const { Search, totalResults } = res.data
-      commit('updateState', {
-        movies: _uniqBy(Search, 'imdbID'),
-      })
+        const { Search, totalResults } = res.data
+        commit('updateState', {
+          movies: _uniqBy(Search, 'imdbID'),
+        })
 
-      const total = parseInt(totalResults, 10)
-      const pageLength = Math.ceil(total / 10)
+        const total = parseInt(totalResults, 10)
+        const pageLength = Math.ceil(total / 10)
 
-      if (pageLength > 1) {
-        for (let page = 2; page <= pageLength; page += 1) {
-          if (page > (payload.number / 10)) break
-          const res = await _fetchMovie({
-            ...payload,
-            page
-          })
-          const { Search } = res.data
-          commit('updateState', {
-            movies: [
-              ...state.movies,
-              ..._uniqBy(Search, 'imdbID'),
-            ] 
-          })
+        if (pageLength > 1) {
+          for (let page = 2; page <= pageLength; page += 1) {
+            if (page > (payload.number / 10)) break
+            const res = await _fetchMovie({
+              ...payload,
+              page
+            })
+            const { Search } = res.data
+            commit('updateState', {
+              movies: [
+                ...state.movies,
+                ..._uniqBy(Search, 'imdbID'),
+              ],
+            })
+          }
         }
-      }
-      } catch(message) {
+      } catch (message) {
         commit('updateState', {
           movies: [],
           message
+        })
+      } finally {
+        commit('updateState', {
+          loading: false
         })
       }
     },
@@ -71,7 +81,7 @@ function _fetchMovie(payload) {
   return new Promise((resolve, reject) => {
     axios.get(url)
       .then(res => {
-        if(res.data.Error) {
+        if (res.data.Error) {
           reject(res.data.Error)
         }
         resolve(res)

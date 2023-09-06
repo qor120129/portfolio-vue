@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/main';
+@import '../assets/scss/main';
 .logo {
   font-family: "Oswald", sans-serif;
   font-size: 20px;
