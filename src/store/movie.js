@@ -6,7 +6,8 @@ export default {
   state: () => ({
     movies: [],
     message: 'Search for the movie title!',
-    loading: false
+    loading: false,
+    theMovie: {}
   }),
   getters: {
   },
@@ -70,13 +71,39 @@ export default {
         })
       }
     },
+    async searchMovieWithId( {state, commit}, payload) {
+      if (state.loading) return     
+
+      commit('updateState', {
+        theMovie: {},
+        loading: true,
+      })
+
+      try{
+        const res = await _fetchMovie(payload)
+        commit('updateState', {
+          theMovie: res.data
+        })
+        console.log('res', res)
+      } catch(error) {
+        commit('updateState', {
+          theMovie: {}
+        })
+      } finally {
+        commit('updateState', {
+          loading: false,
+        })
+      }
+    }
   },
 }
 
 function _fetchMovie(payload) {
-  const { title, type, page, year } = payload
+  const { title, type, page, year, id } = payload
   const OMDb_API_KEY = '42cc3285'
-  const url = `https://www.omdbapi.com/?apikey=${OMDb_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`
+  const url = id 
+  ? `https://www.omdbapi.com/?apikey=${OMDb_API_KEY}&i=${id}` 
+  : `https://www.omdbapi.com/?apikey=${OMDb_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`
 
   return new Promise((resolve, reject) => {
     axios.get(url)

@@ -4,17 +4,17 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import(/* webpackChunkName: "about" */ '../views/HomeView.vue')
+    component: () => import('../views/HomeView.vue')
   },
   {
-    path: '/Movie',
+    path: '/movie/:id',
     name: 'Movie',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Movie.vue')
+    component: () => import('../views/Movie.vue')
   },
   {
-    path: '/About',
+    path: '/about',
     name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import('../views/AboutView.vue')
   }
 ]
 
