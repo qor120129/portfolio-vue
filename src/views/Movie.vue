@@ -41,10 +41,8 @@
               :key="name"
               :title="name"
               class="rating">
-              <img :src="`https://raw.githubusercontent.com/ParkYoungWoong/vue3-movie-app/master/src/assets/${name}.png`" alt="name">
-              <img :src="`../assets/img/${name}.png`" :alt="`../assets/img/${name}.png`">
+              <img :src="`https://raw.githubusercontent.com/qor120129/vue3-movie-app/dfb1cde1769f96cedf445f03cb0ea655ec6a581a/src/assets/img/${name}.png`" :alt="name">
               <span>{{ score }}</span>
-              <div>{{ name }}</div>
             </div>
           </div>
         </div>
@@ -181,7 +179,20 @@ export default {
       margin-top: 20px;
     }
     .ratings{
+      .rating-wrap{
+        display: flex;
+        .rating{
+          display: flex;
+          align-items: center;
+          margin-right: 32px;
+          img{
+            height: 30px;
+            flex-shrink: 0;
+            margin-right: 6px;
 
+          }
+        }
+      }
     }
     h3{
       margin: 24px 0 6px;
