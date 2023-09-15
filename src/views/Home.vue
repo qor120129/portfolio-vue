@@ -10,7 +10,7 @@ import Headline from '../components/Headline'
 import Search from '../components/Search'
 
 export default {
-  name: 'HomeView',
+  name: 'Home',
   components: {
     Headline,
     Search,
