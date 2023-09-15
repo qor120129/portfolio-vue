@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <input v-model="title" type="text" class="form-control" placeholder="Search for Movies, Series & more" @keyup.enter="apply">
+    <input v-model="title" type="text" class="form-control" placeholder="Search for Movies, Series & more"
+      @keyup.enter="apply">
     <div class="selects">
       <select v-for="item in filters" :key="item" v-model="$data[item.name]" class="form-select">
         <option value="" v-if="item.name === 'year'">All Years</option>
@@ -58,12 +59,15 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+@import "../assets/scss/main";
+
 .container {
   display: flex;
 
   >* {
     margin-right: 10px;
     font-size: 15px;
+
     &:last-child {
       margin-right: 0;
     }
@@ -81,11 +85,28 @@ export default {
       }
     }
   }
-  .btn{
+
+  .btn {
     width: 120px;
     height: 50px;
     font-weight: 700;
     flex-shrink: 0;
   }
-}
-</style>
+
+  @include media-breakpoint-down(lg) {
+    display: block;
+
+    input,
+    .selects {
+      margin-right: 0;
+      margin-bottom: 10px;
+      select {
+        width: 100%;
+      }
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+}</style>
