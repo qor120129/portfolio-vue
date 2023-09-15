@@ -4,7 +4,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('../views/HomeView.vue')
+    component: () => import('../views/Home.vue')
   },
   {
     path: '/movie/:id',
@@ -14,7 +14,7 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    component: () => import('../views/AboutView.vue')
+    component: () => import('../views/About.vue')
   }
 ]
 

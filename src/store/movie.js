@@ -1,7 +1,7 @@
 import axios from 'axios'
 import _uniqBy from 'lodash/uniqBy'
 
-export default {
+const movie = {
   namespaced: true,
   state: () => ({
     movies: [],
@@ -27,6 +27,7 @@ export default {
 
       commit('updateState', {
         message: '',
+        movies: [],
         loading: true,
       })
 
@@ -117,3 +118,4 @@ function _fetchMovie(payload) {
       })
   })
 }
+export default movie
