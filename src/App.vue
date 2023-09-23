@@ -1,13 +1,12 @@
 <template>
-  <Header/>
-  <router-view/>
-  <Footer/>
+  <Header />
+  <RouterView />
+  <Footer />
 </template>
 
 <script>
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-
 export default {
   name: 'App',
   components: {
@@ -15,8 +14,4 @@ export default {
     Footer
   },
 }
-
 </script>
-<style>
-
-</style>

@@ -45,7 +45,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import '../assets/scss/main';
 
 .movie {
   position: relative;

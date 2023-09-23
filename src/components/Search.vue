@@ -59,7 +59,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import "../assets/scss/main";
 
 .container {
   display: flex;
@@ -109,4 +108,5 @@ export default {
       width: 100%;
     }
   }
-}</style>
+}
+</style>

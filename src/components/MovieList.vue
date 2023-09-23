@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <div :class="{ 'no-result': !movies.length }" class="inner">
-      <Loader v-if="loading" />
-      <div v-if="message" class="message">
-        <div>{{ message }}</div>
+    <div :class="{ 'no-result': !movie.movies.length }" class="inner">
+      <Loader v-if="movie.loading" />
+      <div v-if="movie.message" class="message">
+        <div>{{ movie.message }}</div>
       </div>
       <div v-else="message" class="movies">
-        <MovieItem v-for="item in movies" :key="item.imdbID" :movie='item' />
+        <MovieItem v-for="item in movie.movies" :key="item.imdbID" :movie='item' />
       </div>
     </div>
   </div>
@@ -21,20 +21,13 @@ export default {
     Loader
   },
   computed: {
-    movies() {
-      return this.$store.state.movie.movies
+    movie() {
+      return this.$store.state.movie
     },
-    message() {
-      return this.$store.state.movie.message
-    },
-    loading() {
-      return this.$store.state.movie.loading
-    }
   },
 }
 </script>
 <style lang="scss" scoped>
-@import '../assets/scss/main';
 
 .container {
   margin-top: 30px;
@@ -62,4 +55,5 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
   }
-}</style>
+}
+</style>

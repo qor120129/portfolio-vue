@@ -1,26 +1,27 @@
 <template>
   <div class="about">
     <div class="photo">
-      <Loader v-if="imageLoading" absolute/>
-      <img :src="about.image" :alt="about.name">
+      <Loader v-if="imageLoading" absolute />
+      <img :src="image" :alt="name">
     </div>
-    <div class="naem">
-      {{ about.name }}
-    </div>
-    <div>
-      <a :href="about.notion" target='_blank'>Notion Link</a>
+    <div class="name">
+      {{ name }}
     </div>
     <div>
-      {{ about.email }}
+      <a :href="notion" target='_blank'>Notion Link</a>
     </div>
     <div>
-      {{ about.phone }}
+      {{ email }}
+    </div>
+    <div>
+      {{ phone }}
     </div>
   </div>
 </template>
 <script>
 import Logo from '@/components/Logo';
 import Loader from '@/components/Loader';
+import { mapState } from 'vuex';
 
 export default {
   name: 'About',
@@ -29,11 +30,18 @@ export default {
     Loader
   },
   computed: {
-    about() {
-      return this.$store.state.about;
-    },
+    ...mapState('about', [
+      'image',
+      'notion',
+      'name',
+      'email',
+      'phone',
+    ]),
+    // about() {
+    //   return this.$store.state.about;
+    // },
   },
-  mounted () {
+  mounted() {
     this.init()
   },
   data() {
@@ -43,7 +51,7 @@ export default {
   },
   methods: {
     async init() {
-      await this.$loadImage(this.about.image)
+      await this.$loadImage(this.image)
       return this.imageLoading = false
     }
   }
@@ -51,8 +59,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/scss/main";
-
 .about {
   text-align: center;
 
@@ -66,13 +72,15 @@ export default {
     border-radius: 50%;
     box-sizing: border-box;
     background-color: $gray-200;
+
     img {
       width: 80%;
     }
   }
-  .naem{
+
+  .name {
     font-size: 40px;
-    font-family: "Oswald", "sans-serif" ;
+    font-family: "Oswald", "sans-serif";
   }
 }
 </style>

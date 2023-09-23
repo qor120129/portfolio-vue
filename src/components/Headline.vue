@@ -13,7 +13,6 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/scss/main";
 
 .container{
   padding-top: 40px;

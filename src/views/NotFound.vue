@@ -7,7 +7,6 @@
   </div>
 </template>
 <style lang="scss" scoped>
-@import "../assets/scss/main";
 
 .not-found {
   text-align: center;
