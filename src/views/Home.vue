@@ -1,7 +1,7 @@
 <template>
-  <Headline/>
-  <Search/>
-  <MovieList/>
+  <Headline />
+  <Search />
+  <MovieList />
 </template>
 
 <script>
@@ -15,6 +15,9 @@ export default {
     Headline,
     Search,
     MovieList
-}
+  },
+  created() {
+    this.$store.commit('movie/resetMovies')
+  }
 }
 </script>

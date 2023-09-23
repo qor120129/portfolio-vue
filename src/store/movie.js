@@ -1,24 +1,27 @@
 import axios from 'axios'
 import _uniqBy from 'lodash/uniqBy'
 
+const _defaultMessage = 'Search for the movie title!'
+
 const movie = {
   namespaced: true,
   state: () => ({
     movies: [],
-    message: 'Search for the movie title!',
+    message: _defaultMessage,
     loading: false,
     theMovie: {}
   }),
-  getters: {
-  },
+
   mutations: {
     updateState(state, payload) {
       Object.keys(payload).forEach(key => {
         state[key] = payload[key]
       })
     },
-    resetMovies() {
-      movies = []
+    resetMovies(state) {
+      state.movies = [],
+      state.message = _defaultMessage,
+      state.loading = false
     }
   },
   actions: {
