@@ -1,7 +1,7 @@
 const about = {
   namespaced: true,
   state: () => ({
-    image: 'https://file.notion.so/f/f/54df4148-23d8-4176-bc63-99f71726287e/4b1732f9-1c78-4803-8b67-937d44ab38fb/IMG_8721.png?id=ec4223b8-8c64-45bb-a596-7dc7159a52b6&table=block&spaceId=54df4148-23d8-4176-bc63-99f71726287e&expirationTimestamp=1695542400000&signature=NGD72eJkhKQngTEYxTFCAgIjSUL7I52JbuTkNJINcXc&downloadName=IMG_8721.png',
+    image: 'https://raw.githubusercontent.com/qor120129/vue3-movie-app/master/src/assets/logo.png',
     notion: 'https://fuzzy-confidence-8c7.notion.site/a5e3737bb2cb418e987388f5eda64deb?pvs=4',
     name: 'SEUNG JIN',
     email: 'qor120129@naver.com',

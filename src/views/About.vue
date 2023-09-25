@@ -74,7 +74,7 @@ export default {
     background-color: $gray-200;
 
     img {
-      width: 80%;
+      width: 100%;
     }
   }
 
