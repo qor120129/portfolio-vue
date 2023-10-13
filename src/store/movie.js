@@ -20,13 +20,13 @@ const movie = {
     },
     resetMovies(state) {
       state.movies = [],
-      state.message = _defaultMessage,
-      state.loading = false
+        state.message = _defaultMessage,
+        state.loading = false
     }
   },
   actions: {
     async searchMovies({ state, commit }, payload) {
-      if (state.loading) return     
+      if (state.loading) return
 
       commit('updateState', {
         message: '',
@@ -64,7 +64,7 @@ const movie = {
             })
           }
         }
-      } catch (message) {
+      } catch ({message}) {
         commit('updateState', {
           movies: [],
           message
@@ -75,21 +75,21 @@ const movie = {
         })
       }
     },
-    async searchMovieWithId( {state, commit}, payload) {
-      if (state.loading) return     
+    async searchMovieWithId({ state, commit }, payload) {
+      if (state.loading) return
 
       commit('updateState', {
         theMovie: {},
         loading: true,
       })
 
-      try{
+      try {
         const res = await _fetchMovie(payload)
         commit('updateState', {
           theMovie: res.data
         })
         console.log('res', res)
-      } catch(error) {
+      } catch (error) {
         commit('updateState', {
           theMovie: {}
         })
@@ -102,23 +102,9 @@ const movie = {
   },
 }
 
-function _fetchMovie(payload) {
-  const { title, type, page, year, id } = payload
-  const OMDb_API_KEY = '42cc3285'
-  const url = id 
-  ? `https://www.omdbapi.com/?apikey=${OMDb_API_KEY}&i=${id}` 
-  : `https://www.omdbapi.com/?apikey=${OMDb_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`
-
-  return new Promise((resolve, reject) => {
-    axios.get(url)
-      .then(res => {
-        if (res.data.Error) {
-          reject(res.data.Error)
-        }
-        resolve(res)
-      }).catch(err => {
-        reject(err.message)
-      })
-  })
+async function _fetchMovie(payload) {
+  console.log('payload222', payload)
+  return await axios.post('/.netlify/functions/movie', payload)
 }
+
 export default movie
