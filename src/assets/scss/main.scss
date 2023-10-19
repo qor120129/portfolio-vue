@@ -1,4 +1,7 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto:wght@400;700&display=swap');
+// @import 'bootstrap/dist/css/bootstrap.min.css'; 
+
 $primary: #2a8b32;
 $container-max-widths: (
   sm: 540px,
@@ -6,21 +9,11 @@ $container-max-widths: (
   lg: 924px,
   xl: 1140px,
   xxl: 1364px
-);
-// Required
-@import "../../../node_modules/bootstrap/scss/functions";
-@import "../../../node_modules/bootstrap/scss/variables";
-@import "../../../node_modules/bootstrap/scss/mixins";
-// @import "../../../node_modules/bootstrap/scss/root";
-// @import "../../../node_modules/bootstrap/scss/reboot";
-// @import "../../../node_modules/bootstrap/scss/type";
+  );
 
-// @import "/node_modules/bootstrap/dist/css/bootstrap.css";
-@import '/node_modules/bootstrap/scss/bootstrap';
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto:wght@400;700&display=swap');
-
-
+  @import "bootstrap/scss/bootstrap";
+  
 body{
   font-family: "Roboto", sans-serif;
   // font-family: "Oswald", "sans-serif" ;
-} 
+}  

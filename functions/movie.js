@@ -1,12 +1,13 @@
 const axios  = require("axios");
+// require('dotenv').config();
 
+const { OMDb_API_KEY } = process.env
 
 exports.handler = async function (event) {
   
   console.log('payload', event)
   const payload = JSON.parse(event.body)
   const { title, type, page, year, id } = payload
-  const OMDb_API_KEY = '42cc3285'
   const url = id
     ? `https://www.omdbapi.com/?apikey=${OMDb_API_KEY}&i=${id}`
     : `https://www.omdbapi.com/?apikey=${OMDb_API_KEY}&s=${title}&type=${type}&y=${year}&page=${page}`

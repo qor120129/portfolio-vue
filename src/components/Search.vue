@@ -90,6 +90,7 @@ export default {
     height: 50px;
     font-weight: 700;
     flex-shrink: 0;
+    color: #fff;
   }
 
   @include media-breakpoint-down(lg) {

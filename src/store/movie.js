@@ -103,7 +103,6 @@ const movie = {
 }
 
 async function _fetchMovie(payload) {
-  console.log('payload222', payload)
   return await axios.post('/.netlify/functions/movie', payload)
 }
 

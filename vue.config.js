@@ -1,7 +1,17 @@
 const { defineConfig } = require('@vue/cli-service')
+
 module.exports = defineConfig ({
   transpileDependencies: true,
   lintOnSave : false,
+  // css: {
+  //   loaderOptions: {
+  //     scss: {
+  //       additionalData:`
+  //       @import "@/assets/scss/main.scss";
+  //       `
+  //     }
+  //   }
+  // },
   configureWebpack: config => {
     config.module = {
         rules: [
@@ -25,17 +35,6 @@ module.exports = defineConfig ({
                   }
                 ],
             },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: [
-                  'babel-loader'
-                ]
-            },
-            {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
-            }
         ]
     };
   }
