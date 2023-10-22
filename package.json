@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "serve:netlify": "netlify dev",
+    "serve:cli": "vue-cli-service serve",
+    "serve": "netlify dev",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },

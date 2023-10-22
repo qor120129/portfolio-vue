@@ -1,8 +1,8 @@
 <template>
   <header>
     <Logo />
-    <div class="nav nav-pills">
-      <div class="nav-item" v-for="item in navigations" :key="item">
+    <div class="nav nav-pills ">
+      <div class="nav-item primary" v-for="item in navigations" :key="item">
         <RouterLink :to="item.href" active-class="active" :class="{ active: isMatch(item.path) }" class="nav-link">
           {{ item.name }}
         </RouterLink>
