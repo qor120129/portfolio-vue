@@ -54,7 +54,6 @@ export default {
         year: this.year
       })
     }
-    // https://www.omdbapi.com/?apikey=42cc3285
   }
 }
 </script>

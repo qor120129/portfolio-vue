@@ -6,7 +6,11 @@
     "serve:cli": "vue-cli-service serve",
     "serve": "netlify dev",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "test:unit": "jest --watchAll react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
+    "test:unit:silent": "jest --watchAll --silent react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
+    "test:e2e": "cypress open",
+    "test:e2e:headless": "cypress run"
   },
   "dependencies": {
     "axios": "^1.4.0",
@@ -26,13 +30,19 @@
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-standard": "^6.1.0",
+    "@vue/test-utils": "^2.4.0-alpha.2",
+    "babel-jest": "^26.6.3",
+    "cypress": "^13.3.3",
     "eslint": "^7.32.0",
+    "eslint-plugin-cypress": "^2.15.1",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
+    "jest": "^26.6.3",
     "netlify-cli": "^16.4.2",
     "sass": "^1.65.1",
-    "sass-loader": "^10.4.1"
+    "sass-loader": "^10.4.1",
+    "vue-jest": "^5.0.0-alpha.10"
   },
   "eslintConfig": {
     "root": true,

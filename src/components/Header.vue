@@ -14,9 +14,9 @@
   </header>
 </template>
 <script>
-import Logo from "@/components/Logo";
-export default {
+import Logo from "../components/Logo.vue"
 
+export default {
   name: 'Header',
   components: {
     Logo
@@ -48,6 +48,7 @@ export default {
   methods: {
     isMatch(path) {
       if (!path) return false
+      console.log(this.$route)
       return path.test(this.$route.fullPath)
     },
     toAbout() {

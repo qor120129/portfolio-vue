@@ -24,6 +24,7 @@ const movie = {
         state.loading = false
     }
   },
+  
   actions: {
     async searchMovies({ state, commit }, payload) {
       if (state.loading) return
