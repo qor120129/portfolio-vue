@@ -23,7 +23,7 @@ describe('영화검색', () => {
       .contains('Frozen II')
       .click()
     cy.url().should('include', '/movie/tt4520988')
-    cy.wait(1000)
+    // cy.wait(1000)
 
     cy.get('header .nav-link.active')
       .contains('Movie')
